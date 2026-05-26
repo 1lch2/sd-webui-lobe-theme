@@ -69,18 +69,18 @@
   "dependencies": {
     "@bluelovers/auto1111-pnginfo": "^2.0.3",
     "@icons-pack/react-simple-icons": "^9.5.0",
-    "@lobehub/ui": "^1.141.0",
+    "@lobehub/ui": "~1.149.3",
     "@rollup/rollup-win32-x64-msvc": "^4.18.0",
     "ahooks": "^3.8.0",
-    "antd": "5.17.0",
+    "antd": "^5.23.0",
     "antd-style": "^3.6.2",
     "consola": "^3.2.3",
     "dayjs": "^1.11.11",
     "i18next": "^23.11.5",
     "i18next-http-backend": "^2.5.2",
     "lodash-es": "^4.17.21",
-    "lucide-react": "latest",
-    "lucide-static": "latest",
+    "lucide-react": "^0.469.0",
+    "lucide-static": "^0.469.0",
     "modern-screenshot": "^4.4.39",
     "polished": "^4.3.1",
     "react": "^18.3.1",
@@ -130,7 +130,7 @@
     "terser": "^5.31.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
-    "vitest": "~1.2.2"
+    "vitest": "~1.6.0"
   },
   "publishConfig": {
     "access": "public",

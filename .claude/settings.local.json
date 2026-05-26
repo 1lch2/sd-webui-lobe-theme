@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(rm -rf node_modules)",
+      "Bash(cmd //c \"rmdir /s /q node_modules\")",
+      "Bash(npm list *)",
+      "Bash(node -e \"const pkg = require\\('lucide-react/package.json'\\); console.log\\('lucide-react version:', pkg.version\\)\")",
+      "Bash(npm run *)"
+    ]
+  }
+}

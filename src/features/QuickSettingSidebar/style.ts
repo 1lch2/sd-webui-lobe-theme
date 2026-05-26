@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 
 export const useStyles = createStyles(
-  ({ css }, { headerHeight = 64, width }: { headerHeight?: number; width: number }) => ({
+  ({ css, token }, { headerHeight = 64, width }: { headerHeight?: number; width: number }) => ({
     container: css`
       height: calc(100vh - ${headerHeight}px);
 
@@ -51,7 +51,7 @@ export const useStyles = createStyles(
           width: 100%;
         }
 
-        span {
+        span:not(.icon-wrap) {
           overflow: hidden;
           width: 100%;
           text-overflow: ellipsis;
@@ -65,6 +65,42 @@ export const useStyles = createStyles(
 
         div.gradio-dropdown {
           min-width: unset !important;
+        }
+
+        /* Forge-classic-neo specific dropdown styles */
+        #setting_sd_modules,
+        #forge_ui_preset,
+        #forge_ui_dtype {
+          width: 100%;
+
+          .wrap {
+            border: 1px solid ${token.colorBorderSecondary};
+            border-radius: ${token.borderRadius}px;
+            background: ${token.colorFillTertiary};
+
+            &:focus-within {
+              border-color: ${token.colorPrimary};
+            }
+          }
+
+          .token {
+            max-width: 100%;
+            margin: 0;
+            border-color: ${token.colorBorder};
+            background: ${token.colorFillSecondary};
+          }
+
+          .wrap .wrap-inner {
+            height: auto !important;
+          }
+        }
+
+        .model_selection {
+          width: 100%;
+
+          .wrap {
+            min-height: 36px;
+          }
         }
       }
     `,
