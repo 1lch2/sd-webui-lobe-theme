@@ -2,9 +2,13 @@
 
 ## Fork 说明 / About this fork
 
-**中文：** 本 Fork 基于 Lobe Theme，针对 [Stable Diffusion WebUI Forge Neo（sd-webui-forge-neo）](https://github.com/Haoming02/sd-webui-forge-classic/tree/neo) 进行兼容性适配，主要修复新版 Neo 中模型选择控件、多选下拉框及侧栏布局的样式与交互问题，并移除了上游版本的自动更新检查。以下保留上游项目的原始说明。
+**中文：** 本 Fork 基于 Lobe Theme，针对 [Stable Diffusion WebUI Forge Classic Neo](https://github.com/Haoming02/sd-webui-forge-classic/tree/neo) 进行兼容性适配，主要修复新版 Neo 中模型选择控件、多选下拉框及侧栏布局的样式与交互问题，并移除了上游版本的自动更新检查。以下保留上游项目的原始说明。
 
-**English:** This fork adapts Lobe Theme for [Stable Diffusion WebUI Forge Neo (sd-webui-forge-neo)](https://github.com/Haoming02/sd-webui-forge-classic/tree/neo). It focuses on styling and interaction compatibility for Neo's model selectors, multiselect dropdowns, and sidebar layout. Automatic checks for upstream updates have also been removed. The original upstream documentation is preserved below.
+Fork 本身只修复了侧边栏的兼容问题，没有计划维护 forge-neo 的新功能。
+
+**English:** This fork adapts Lobe Theme for [Stable Diffusion WebUI Forge Classic Neo](https://github.com/Haoming02/sd-webui-forge-classic/tree/neo). It focuses on styling and interaction compatibility for Neo's model selectors, multiselect dropdowns, and sidebar layout. Automatic checks for upstream updates have also been removed. The original upstream documentation is preserved below.
+
+This fork itself only solves the side bar compatibility issues, no plan for mainting new features from forge-neo.
 
 ---
 
