@@ -64,7 +64,6 @@ export const DEFAULT_SETTING: WebuiSetting = {
 
 export interface StroeState {
   currentTab: string;
-  latestVersion: string;
   loading: boolean;
   localeOptions: SelectProps['options'];
   setting: WebuiSetting;
@@ -74,7 +73,6 @@ export interface StroeState {
 
 export const initialState: StroeState = {
   currentTab: 'tab_txt2img',
-  latestVersion: DEFAULT_VERSION,
   loading: true,
   localeOptions: DEFAULT_LOCALE_OPTIONS,
   setting: DEFAULT_SETTING,

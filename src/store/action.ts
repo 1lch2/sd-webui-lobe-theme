@@ -1,7 +1,7 @@
 import { consola } from 'consola';
 import type { StateCreator } from 'zustand/vanilla';
 
-import { getLatestVersion, getLocaleOptions, getSetting, getVersion, postSetting } from './api';
+import { getLocaleOptions, getSetting, getVersion, postSetting } from './api';
 import { DEFAULT_SETTING, type WebuiSetting } from './initialState';
 import type { Store } from './store';
 
@@ -9,7 +9,6 @@ export const SETTING_KEY = 'SD-LOBE-SETTING';
 export const FALLBACK_SETTING_KEY = 'SD-KITCHEN-SETTING';
 export interface StoreAction {
   onInit: () => void;
-  onLoadLatestVersion: () => void;
   onLoadLocalOptions: () => void;
   onLoadSetting: () => void;
   onLoadVersion: () => void;
@@ -22,24 +21,19 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
   set,
   get,
 ) => ({
-  onInit: async() => {
+  onInit: async () => {
     set(() => ({ loading: true }), false, 'onInit');
-    const { onLoadSetting, onLoadVersion, onLoadLatestVersion, onLoadLocalOptions } = get();
+    const { onLoadSetting, onLoadVersion, onLoadLocalOptions } = get();
     await onLoadLocalOptions();
     await onLoadVersion();
-    await onLoadLatestVersion();
     await onLoadSetting();
     set(() => ({ loading: false }), false, 'onInit');
   },
-  onLoadLatestVersion: async() => {
-    const latestVersion = await getLatestVersion();
-    set(() => ({ latestVersion }), false, 'onLoadLatestVersion');
-  },
-  onLoadLocalOptions: async() => {
+  onLoadLocalOptions: async () => {
     const localeOptions = await getLocaleOptions();
     set(() => ({ localeOptions }), false, 'onLoadLocalOptions');
   },
-  onLoadSetting: async() => {
+  onLoadSetting: async () => {
     let themeSetting;
     const webuiSetting: any = await getSetting();
 
@@ -76,11 +70,11 @@ export const createSettings: StateCreator<Store, [['zustand/devtools', never]], 
     consola.success('🤯 [setting] loaded');
     console.table(setting);
   },
-  onLoadVersion: async() => {
+  onLoadVersion: async () => {
     const version = await getVersion();
     set(() => ({ version }), false, 'onLoadVersion');
   },
-  onSetSetting: async(setting) => {
+  onSetSetting: async (setting) => {
     const oldSetting = get().setting;
     const newSetting = { ...oldSetting, ...setting };
     localStorage.setItem(SETTING_KEY, JSON.stringify(newSetting));
