@@ -24,8 +24,7 @@ const QuickSettingSidebar = memo<QuickSettingSidebarProps>(({ headerHeight }) =>
   const setting = useAppStore(selectors.currentSetting, isEqual);
   const [expand, setExpand] = useState<boolean>(mobile ? false : setting.sidebarExpand);
   const [pin, setPin] = useState<boolean>(setting.sidebarFixedMode === 'fixed');
-  const [width, setWidth] = useState<number>(setting.sidebarWidth);
-  const { styles, theme } = useStyles({ headerHeight, width });
+  const { styles, theme } = useStyles({ headerHeight });
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -41,7 +40,6 @@ const QuickSettingSidebar = memo<QuickSettingSidebarProps>(({ headerHeight }) =>
       minWidth={setting.sidebarWidth}
       mode={mode}
       onExpandChange={setExpand}
-      onSizeChange={(_, size) => size?.width && setWidth(Number.parseInt(String(size.width)))}
       pin={pin}
       placement="left"
       style={{
@@ -53,9 +51,9 @@ const QuickSettingSidebar = memo<QuickSettingSidebarProps>(({ headerHeight }) =>
         <DraggablePanelContainer
           className={styles.container}
           style={
-            mode === 'float' ?
-              { background: theme.colorBgContainer, minWidth: setting.sidebarWidth } :
-              { minWidth: setting.sidebarWidth }
+            mode === 'float'
+              ? { background: theme.colorBgContainer, minWidth: setting.sidebarWidth }
+              : { minWidth: setting.sidebarWidth }
           }
         >
           <DraggablePanelHeader

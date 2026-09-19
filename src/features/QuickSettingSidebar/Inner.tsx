@@ -1,13 +1,15 @@
 import { DraggablePanelBody } from '@lobehub/ui';
 import { Segmented } from 'antd';
 import { useTheme } from 'antd-style';
-import { memo, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { PromptEditor } from '@/components';
 import { useInject } from '@/hooks/useInject';
 import { type DivProps } from '@/types';
+
+import { observeDropdowns } from './dropdowns';
 
 enum Tabs {
   Prompt = 'prompt',
@@ -20,9 +22,13 @@ const Inner = memo<DivProps>(() => {
   const sidebarReference = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
-  useInject(sidebarReference, '#quicksettings', {
+  const { element } = useInject(sidebarReference, '#quicksettings', {
     debug: '[layout] inject - QuickSettingSidebar',
   });
+
+  useEffect(() => {
+    if (element) return observeDropdowns(element);
+  }, [element]);
 
   return (
     <DraggablePanelBody>
